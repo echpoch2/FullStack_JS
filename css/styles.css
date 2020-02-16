@@ -1,0 +1,164 @@
+html,
+body {
+	height: 100%;
+
+}
+
+main {
+	font-family: tahoma;
+	height: 100%;
+  display: flex;
+  justify-content: center;
+	background: linear-gradient(to top, #E7ECF0, #AAC5E2);
+
+}
+.warp{
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  transition: left 0.2s;
+
+}
+.first-header{
+  width: 100%;
+	margin-bottom: 8px;
+}
+.first
+{
+  width: 300px;
+	background: white;
+  flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	border-right:  1px #DFE4E5 solid;
+}
+.second
+{
+  flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+background: white;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	flex-shrink: 0;
+}
+
+
+
+.nav-trigger {
+ position: absolute;
+display: none;
+}
+label[for="nav-trigger"]{
+	margin-left: 8px;
+display: none;
+}
+.first-header{
+	height: 50px;
+	flex-shrink: 0;
+}
+.elements{
+	flex-grow: 1;
+	overflow-y: scroll;
+}
+
+.first-footer{
+	height: 35px;
+display: flex;
+align-items: center;
+justify-content: flex-end;
+	background-color: #2F3B47;
+	flex-shrink: 0;
+	padding-right: 15px;
+}
+.first-footer img{
+	margin-left: 25px;
+}
+.second-wrap
+{
+
+	overflow-y: scroll;
+	flex-grow: 1;
+	flex-shrink: 1;
+}
+.second-footer{
+	height: 35px;
+	background-color: #2F3B47;
+	flex-shrink:0;
+	flex-grow: 0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+.second-footer img{
+	cursor: pointer;
+	margin-right: 25px;
+}
+.second-header{
+  border-bottom: 1px #DFE4E5 solid;
+  height: 35px;
+  display: flex;
+  align-items: center;
+	flex-shrink: 0;
+  background: #EFF4F8;
+}
+::-webkit-scrollbar { width: 10px; }
+
+::-webkit-scrollbar-track {
+  background: #f7efef;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a5a2a2;
+  border-radius: 0px;
+}
+@media screen and (max-width: 1000px){
+    label[for="nav-trigger"] {
+ z-index: 2;
+ display: inline;
+ width: 30px;
+ height: 30px;
+ cursor: pointer;
+ background-size: contain;
+}
+.info{
+  display: none;
+}
+  .first{
+    list-style: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+
+  }
+  .second{
+
+    background-color: #fff;
+    position: relative;
+    top: 0;
+    bottom: 100%;
+    left: 0;
+    z-index: 1;
+
+
+  }
+.nav-trigger:checked + label {
+    left: 259px;
+}
+
+.nav-trigger:checked ~ .second{
+    left: 299px;
+}
+
+
+.nav-trigger + label, .second, .first{
+    transition: left 0.2s;
+}
+body {
+    overflow-x: hidden;
+}
+}

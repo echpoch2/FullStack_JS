@@ -1,0 +1,25 @@
+
+.search{
+  display: flex;
+  flex-direction: row;
+  border: 1px #DFE4E5 solid;
+  margin: 10px;
+  justify-content: space-between;
+  padding: 3px;
+}
+input[name="search"]
+{
+  padding-left: 3px;
+  font-style: italic;
+  flex-grow: 1;
+  border: none;
+  width: 200px;
+}
+.form-img img{
+  cursor: inherit;
+  margin-left: 5px;
+}
+.form-img img{
+  cursor: pointer;
+  margin-left: 5px;
+}
