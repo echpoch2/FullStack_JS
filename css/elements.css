@@ -1,3 +1,6 @@
+img{
+  cursor: pointer;
+}
 .f-header-title{
   display: flex;
   align-items:center;
@@ -21,6 +24,9 @@
 
 
 
+}
+.naming{
+  font-size: 13px;
 }
 .line-th{
 
@@ -204,6 +210,14 @@ border-top:   2px #DFE4E5 solid;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.price{
+  font-size: 13px;
+  font-weight: bolder;
+}
+.wallet-table{
+  font-size: 13px;
+  font-weight: normal;
 }
 @media screen and (max-width: 570px){
   .line-th{
