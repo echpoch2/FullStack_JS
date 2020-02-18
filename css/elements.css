@@ -87,6 +87,9 @@ img{
   font-size: 14px;
   color: #9DA5AA;
 }
+.order-date{
+  margin-left: 15px;
+}
 .order-container-1{
   font-size: 14px;
   color: #9DA5AA;
@@ -99,6 +102,12 @@ img{
 }
 .order-status{
   color: #18B100;
+}
+.status-success{
+  color: #18B100;
+}
+.status-late{
+  color: red;
 }
 
 .second-header-name{
@@ -113,6 +122,16 @@ align-items: center;
   background: #EFF4F8;
   display: flex;
   flex-direction: column;
+}
+.main-order-number{
+  width: 300px;
+
+
+}
+.order-number{
+  overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
 }
 .main-order-info-2{
   display: flex;
@@ -199,7 +218,7 @@ border-top:   2px #DFE4E5 solid;
 
 }
 .customer-ico img{
-  padding: 5px;
+  padding: 3px;
   border-radius: 425px;
   border: 2px #4679B2 solid;
 }
@@ -219,7 +238,15 @@ border-top:   2px #DFE4E5 solid;
   font-size: 13px;
   font-weight: normal;
 }
+.hidden-field{
+  margin-top: 12px !important;
+  color: black;
+  display: none !important;
+}
 @media screen and (max-width: 570px){
+  .hidden-field{
+    display: inline !important;
+  }
   .line-th{
     display: none;
   }
@@ -234,7 +261,7 @@ border-top:   2px #DFE4E5 solid;
     flex-direction: column;
     flex: 1 1 0px;
     padding: 0px;
-    margin-top: 10px;
+    margin-top: 3px;
   }
   .adaptive-header{
     display: inline;
