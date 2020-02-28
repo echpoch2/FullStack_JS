@@ -8,6 +8,21 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/elements.css">
     <link rel="stylesheet" href="css/forms.css">
+    <script type="text/javascript" src="scripts/jquery-3.4.1.js">
+    </script>
+    <script type="text/javascript"src="scripts/onclick.js">
+
+    </script>
+    <script src="scripts/data.js">
+
+    </script>
+    <script src="scripts/onload.js">
+
+
+    </script>
+    <script src="scripts/search.js">
+
+    </script>
   </head>
   <body>
     <main>
@@ -33,146 +48,7 @@
 
           </header>
           <div class="elements">
-            <div class="order">
-                <div class="order-info">
-                  <div class="order-number">
-                    Order 799108778968776
-                  </div>
-                  <div class="order-date">
-                    21.11.2016
-                  </div>
-                </div>
-                <div class="order-container-1">
-                  <div class="order-container-2">
-                    <div class="order-customer">
-                      Tortuga Restoraunte
-                    </div>
-                    <div class="order-ship-date">
-                      Shiped: 26 сент 2016 г.
-                    </div>
-                  </div>
-                  <div class="order-status status-success">
-                    In time
-                  </div>
-                </div>
-            </div>
-            <div class="order">
-                <div class="order-info">
-                  <div class="order-number">
-                    Order 7918
-                  </div>
-                  <div class="order-date">
-                    18.11.2016
-                  </div>
-                </div>
-                <div class="order-container-1">
-                  <div class="order-container-2">
-                    <div class="order-customer">
-                      Tortuga Restoraunte
-                    </div>
-                    <div class="order-ship-date">
-                      Shiped: 26 сент 2016 г.
-                    </div>
-                  </div>
-                  <div class="order-status status-late">
-                    Too late
-                  </div>
-                </div>
-            </div>
-            <div class="order">
-                <div class="order-info">
-                  <div class="order-number">
-                    Order 7375
-                  </div>
-                  <div class="order-date">
-                    09.11.2016
-                  </div>
-                </div>
-                <div class="order-container-1">
-                  <div class="order-container-2">
-                    <div class="order-customer">
-                      Alfreds Futterki
-                    </div>
-                    <div class="order-ship-date">
-                      Shiped: 26 сент 2016 г.
-                    </div>
-                  </div>
-                  <div class="order-status">
-                    In time
-                  </div>
-                </div>
-            </div>
-            <div class="order">
-                <div class="order-info">
-                  <div class="order-number">
-                    Order 7991
-                  </div>
-                  <div class="order-date">
-                    21.11.2016
-                  </div>
-                </div>
-                <div class="order-container-1">
-                  <div class="order-container-2">
-                    <div class="order-customer">
-                      Tortuga Restoraunte
-                    </div>
-                    <div class="order-ship-date">
-                      Shiped: 26 сент 2016 г.
-                    </div>
-                  </div>
-                  <div class="order-status">
-                    In time
-                  </div>
-                </div>
-            </div>
-            <div class="order">
-                <div class="order-info">
-                  <div class="order-number">
-                    Order 7991
-                  </div>
-                  <div class="order-date">
-                    21.11.2016
-                  </div>
-                </div>
-                <div class="order-container-1">
-                  <div class="order-container-2">
-                    <div class="order-customer">
-                      Tortuga Restoraunte
-                    </div>
-                    <div class="order-ship-date">
-                      Shiped: 26 сент 2016 г.
-                    </div>
-                  </div>
-                  <div class="order-status">
-                    In time
-                  </div>
-                </div>
-            </div>
 
-
-            <div class="order">
-                <div class="order-info">
-                  <div class="order-number">
-                    Order 7991
-                  </div>
-                  <div class="order-date">
-                    21.11.2016
-                  </div>
-                </div>
-                <div class="order-container-1 small">
-                  <div class="order-container-2">
-                    <div class="order-customer">
-                      Tortuga Restoraunte
-                    </div>
-                    <div class="order-ship-date">
-                      Shiped: 26 сент 2016 г.
-                    </div>
-                  </div>
-                  <div class="order-status">
-                    In time
-                  </div>
-                </div>
-            </div>
           </div>
           <footer class="first-footer">
             <img src="img/filter.png" width="25px" alt="">
@@ -227,38 +103,77 @@
                 </div>
 
               <div class="main-icos">
-                <div class="shipping-ico active">
+                <div class="shipping-ico active" onclick="ship_active();">
                   <img src="img/truck.png" width="50px" alt="">
                 </div>
-                <div class="customer-ico">
+                <div class="customer-ico" onclick="profile_active();">
                   <img src="img/person.png" width="34px" height="34px"alt="">
                 </div>
               </div>
             </div>
 
-            <div class="shipping-adress">
-              <div class="section-title">
+            <div class="section">
+              <div class="section-title ShipTo">
                 Shipping address
               </div>
-              <div class="section-info">
+              <div class="section-info ShipTo">
                 <table >
                   <tr >
                     <td class="small">Name:</td>
-                    <td>ExcellentParcel</td>
+                    <td class="ship-name">ExcellentParcel</td>
                   </tr>
                   <tr>
-                    <td class="small">ZIP Code / City:</td>
-                    <td>London</td>
+                    <td class="small ">Address: </td>
+                    <td class="ship-adress">London</td>
+                  </tr>
+                  <tr>
+                    <td class="small ">ZIP Code / City:</td>
+                    <td class="ZIP">London</td>
                   </tr>
                   <tr>
                     <td class="small">Region:</td>
-                    <td>Greater London</td>
+                    <td class="region">Greater London</td>
                   </tr>
                   <tr>
                     <td class="small">Country:</td>
-                    <td>United Kingdom</td>
+                    <td class="country">United Kingdom</td>
                   </tr>
                 </table>
+              </div>
+              <div class="section-title CustomerInfo">
+                Processor Information
+              </div>
+              <div class="section-info CustomerInfo">
+                <div class="section-main-info">
+                  <div class="section-details">
+                    Details
+                  </div>
+
+                  <table >
+                  <tr >
+                    <td class="small">Name:</td>
+                    <td class="full-name"></td>
+                  </tr>
+                  <tr>
+                    <td class="small">Adress</td>
+                    <td class="customer-adress">London</td>
+                  </tr>
+                  <tr>
+                    <td class="small">Phone:</td>
+                    <td class="phone"></td>
+                  </tr>
+                  <tr>
+                    <td class="small">Email:</td>
+                    <td class="email">United Kingdom</td>
+                  </tr>
+                </table>
+                </div>
+                <div class="customer-img">
+                  <div class="picture">
+                    Picture
+                  </div>
+                  <img src="img/profile.png" width="140px" height="140px" alt="">
+                </div>
               </div>
             </div>
             <div class="line-items">
@@ -278,50 +193,11 @@
 
                     </div>
                   </div>
-                  <div class="line-tr">
-                    <div> <span class="bold naming">Anissed Syrup</span> <span class='small number'>1412</span></div>
-                    <div class="hidden-field small">  Unit Price:    </div>
+                  <div class="buffer-line-tr">
 
-
-                    <div > <span><span class="price">65.89 </span><span class="small wallet-table">EUR</span></span></div>
-                    <div class="hidden-field small">Quantity:</div>
-                    <div ><span> <span class="small">899</span></span></div>
-                    <div class="hidden-field small">Total:</div>
-                    <div class="bold"><span> <span class="price"> 59235,11</span><span class="small wallet-table"> EUR</span></span></div>
                   </div>
-                  <div class="line-tr">
-                    <div> <span class="bold naming">Anissed Syrup</span> <span class='small number'>1412</span></div>
-                    <div class="hidden-field small">  Unit Price:    </div>
 
 
-                    <div > <span><span class="price">65.89 </span><span class="small wallet-table">EUR</span></span></div>
-                    <div class="hidden-field small">Quantity:</div>
-                    <div ><span> <span class="small">899</span></span></div>
-                    <div class="hidden-field small">Total:</div>
-                    <div class="bold"><span> <span class="price"> 59235,11</span><span class="small wallet-table"> EUR</span></span></div>
-                  </div>
-                  <div class="line-tr">
-                    <div> <span class="bold naming">Anissed Syrup</span> <span class='small number'>1412</span></div>
-                    <div class="hidden-field small">  Unit Price:    </div>
-
-
-                    <div > <span><span class="price">65.89 </span><span class="small wallet-table">EUR</span></span></div>
-                    <div class="hidden-field small">Quantity:</div>
-                    <div ><span> <span class="small">899</span></span></div>
-                    <div class="hidden-field small">Total:</div>
-                    <div class="bold"><span> <span class="price"> 59235,11</span><span class="small wallet-table"> EUR</span></span></div>
-                  </div>
-                  <div class="line-tr">
-                    <div> <span class="bold naming">Anissed Syrup</span> <span class='small number'>1412</span></div>
-                    <div class="hidden-field small">  Unit Price:    </div>
-
-
-                    <div > <span><span class="price">65.89 </span><span class="small wallet-table">EUR</span></span></div>
-                    <div class="hidden-field small">Quantity:</div>
-                    <div ><span> <span class="small">899</span></span></div>
-                    <div class="hidden-field small">Total:</div>
-                    <div class="bold"><span> <span class="price"> 59235,11</span><span class="small wallet-table"> EUR</span></span></div>
-                  </div>
 
 
 
