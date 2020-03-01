@@ -1,25 +1,38 @@
-
-function find(value)
-{
-for (var obj in Orders) {
-  let info_obj=destruct(Orders[obj]);
-  for (var field_key in info_obj) {
-    console.log(info_obj[field_key])
-  }
-}
-}
-function destruct(obj)
-{
-  for (var val in obj) {
-
-    if(typeof(obj[val]).indexOf("Object"))
-    {
-
-      destruct(obj[val]);
+function find_order(){
+  let string = $('.search_field').val();
+  arr_string = string.split(" ");
+  Orders.forEach((item, i) => {
+    item.coincidence = 0; //свойство для подсчета кол-ва совпадений
+    arr_string.forEach((word, i) => {
+     if(item.id==word or item.id=="Order "+word)
+      {
+       item.coincidence++;
     }
-    else {
-      return obj;
+    for (var field in item.OrderInfo) {
+
+        if(1+item.OrderInfo[field].indexOf(word)){
+          item.coincidence++;
+        }
+
     }
-  }
+    for (var field in item.ShipTo) {
+
+        if(1+item.ShipTo[field].indexOf(word)){
+          item.coincidence++;
+        }
+
+    }
+    for (var field in item.CustomerInfo) {
+
+        if(1+item.CustomerInfo[field].indexOf(word)){
+          item.coincidence++;
+        }
+
+    }
+
+
+  });
+
+  });
+  add_orders("searchResult");
 }
-find();
