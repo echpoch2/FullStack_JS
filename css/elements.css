@@ -42,7 +42,10 @@ img{
 }
 .line-th div{
   flex: 1 1 120px;
-  padding: 30px;
+
+padding-left: 20px;
+
+  cursor: pointer;
 }
 .line-tr{
   padding: 5px;
@@ -76,6 +79,9 @@ img{
 .order:hover{
   background-color: #E8EFF7;
   cursor: pointer;
+}
+.order-active{
+  background-color: #E8EFF7;
 }
 .order-info{
   font-size: 18px;

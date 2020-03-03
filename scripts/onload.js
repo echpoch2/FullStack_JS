@@ -2,11 +2,14 @@ window.onload = function() {
   add_orders();
   ship_active();
   getOrderInfo(Orders[0].id);
+  order_active(Orders[0].id);
 };
-function getOrderInfo(id) {
+function getOrderInfo(id, key) {
+  let bufOrders = Orders.concat(); //создание копии Orders
   $(".buffer-line-tr").html(" ");
-  Orders.forEach((item, i) => {
+  bufOrders.forEach((item, i) => {
     if(item.id==id){
+
       $(".main-order-number").text("Order " +item.id);
       $(".customer-info").text("Customer " +item.OrderInfo.customer);
       $(".ordered").text("Ordered " +item.OrderInfo.createdAt);
@@ -24,29 +27,58 @@ function getOrderInfo(id) {
       $(".email").text(item.CustomerInfo.email);
 
       var total=0;
+      var k=0;
       item.products.forEach((product_item, i) => {
         total += parseInt(product_item.price) * parseInt(product_item.quantity);
-        $(".line-items-header").text("Line Items("+(i+1)+")");
-        $('<div>',{
-          class: "line-tr",
-        }).html(
-        '<div> <span class="bold naming">'+product_item.name+'</span> <span class="small number">'+product_item.id+'</span></div>'+
-        '<div class="hidden-field small">  Unit Price:    </div>'+
-        '<div > <span><span class="price">'+product_item.price+' </span><span class="small wallet-table">'+product_item.currency+'</span></span></div>'+
-      '<div class="hidden-field small">Quantity:</div>'+
-        '<div ><span> <span class="small">'+product_item.quantity+'</span></span></div>'+
-        '<div class="hidden-field small">Total:</div>'+
-        '<div class="bold"><span> <span class="price"> '+product_item.totalPrice+'</span><span class="small wallet-table"> EUR</span></span></div>'
-        ).appendTo(".buffer-line-tr")
-      });
 
+        if(product_item.coincidence!=0 && key == "searchResult") //если результат отрицателен то не выводим product
+        {
+          k++;
+          $('<div>',{
+            class: "line-tr",
+          }).html(
+          '<div> <span class="bold naming">'+product_item.name+'</span> <span class="small number">'+product_item.id+'</span></div>'+
+          '<div class="hidden-field small">  Unit Price:    </div>'+
+          '<div > <span><span class="price">'+product_item.price+' </span><span class="small wallet-table">'+product_item.currency+'</span></span></div>'+
+        '<div class="hidden-field small">Quantity:</div>'+
+          '<div ><span> <span class="small">'+product_item.quantity+'</span></span></div>'+
+          '<div class="hidden-field small">Total:</div>'+
+          '<div class="bold"><span> <span class="price"> '+product_item.totalPrice+'</span><span class="small wallet-table"> EUR</span></span></div>'
+          ).appendTo(".buffer-line-tr")
+        }
+        else if(key != "searchResult"){
+
+            k++;
+            $('<div>',{
+              class: "line-tr",
+            }).html(
+            '<div> <span class="bold naming">'+product_item.name+'</span> <span class="small number">'+product_item.id+'</span></div>'+
+            '<div class="hidden-field small">  Unit Price:    </div>'+
+            '<div > <span><span class="price">'+product_item.price+' </span><span class="small wallet-table">'+product_item.currency+'</span></span></div>'+
+          '<div class="hidden-field small">Quantity:</div>'+
+            '<div ><span> <span class="small">'+product_item.quantity+'</span></span></div>'+
+            '<div class="hidden-field small">Total:</div>'+
+            '<div class="bold"><span> <span class="price"> '+product_item.totalPrice+'</span><span class="small wallet-table"> EUR</span></span></div>'
+            ).appendTo(".buffer-line-tr")
+
+        }
+        $(".line-items-header").text("Line Items("+(k)+")");
+        });
+
+
+      $("[data-label=Product]").attr("onClick","sort("+id+",'product')");
+      $("[data-label=Unit-Price]").attr("onClick","sort("+id+",'price')");
+      $("[data-label=Quantity]").attr("onClick","sort("+id+",'quantity')");
+      $("[data-label=Total]").attr("onClick","sort("+id+",'total')");
+      $("#jsOrderRefresher").attr("onClick","getOrderInfo("+id+")");
+      $(".line-th").attr("idorder",id); //храним id ордера в произвольном аттрибуте
       $(".main-order-cost-2").text(total);
     }
   });
 
 }
 function add_orders(flag){
-  var bufOrders = Orders.slice(); //создание копии Orders
+  let bufOrders = Orders.slice(); //создание копии Orders
   $(".elements").html(" "); //очистка elements
   if(flag=="searchResult"){
 
@@ -60,7 +92,6 @@ function add_orders(flag){
     }
     function compare(a,b)
     {
-
       if (a.coincidence > b.coincidence) return -1; // если первое значение больше второго
       if (a.coincidence == b.coincidence) return 0; // если равны
       if (a.coincidence < b.coincidence) return 1; // если первое значение меньше второго
@@ -123,7 +154,7 @@ function add_orders(flag){
                     )
                 })
               )
-            }).attr('onClick', 'getOrderInfo('+item.id+');')
+            }).attr('onClick', 'getOrderInfo('+item.id+'); order_active('+item.id+')').attr('jsIdOrder', item.id)
         .appendTo(".elements");
       });
 

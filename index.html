@@ -23,6 +23,9 @@
     <script src="scripts/search.js">
 
     </script>
+    <script src="scripts/productsInfo.js">
+
+    </script>
   </head>
   <body>
     <main>
@@ -41,7 +44,7 @@
               <input type="text" name="search" class="search_field"placeholder="Поиск">
               <div class="form-img">
                 <img src="img/search.png" width="20px" alt="" onclick="find_order()">
-                <img src="img/refresh.png" width="20px" alt="">
+                <img src="img/refresh.png" width="20px" alt="" onclick="add_orders();">
               </div>
 
             </form>
@@ -178,15 +181,32 @@
             </div>
             <div class="line-items">
               <div class="line-items-header">
-                Line Items(4)
+                Line Items()
+
               </div>
+              <form class="search" action="#" method="post">
+                <input type="text" name="search" class="search_products"placeholder="Поиск">
+                <div class="form-img">
+                  <img src="img/search.png" width="20px" alt="" onclick="find_products()">
+                  <img src="img/refresh.png" id="jsOrderRefresher" width="20px" onclick="add_orders();">
+                </div>
+
+              </form>
               <div class="line-items-table">
 
                 <div class="line-th small">
-                  <div data-label="Product"> Product</div>
-                  <div data-label="Unit Price"> Unit Price</div>
-                  <div data-label="Quantity"> Quantity</div>
-                  <div data-label="Total"> Total</div>
+                  <div data-label="Product" > Product
+                    <img src="img/sort.png" height="13px"; alt="">
+                  </div>
+                  <div data-label="Unit-Price"> Unit Price
+                    <img src="img/sort.png" height="13px"; alt="">
+                  </div>
+                  <div data-label="Quantity" > Quantity
+                    <img src="img/sort.png" height="13px"; alt="">
+                  </div>
+                  <div data-label="Total" > Total
+                    <img src="img/sort.png" height="13px"; alt="">
+                  </div>
                 </div>
                   <div class="line-tr adaptive-header">
                     <div class="">
