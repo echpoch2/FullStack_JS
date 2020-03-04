@@ -2,8 +2,7 @@ var sort_counter=0;
 function sort(id,column)
 {
   sort_counter++;
-   let bufOrders = Orders.slice(0);
-  bufOrders.forEach((item, i) => {
+  Orders.forEach((item, i) => {
     if(item.id==id)
     {
       if(sort_counter==0)
@@ -51,7 +50,7 @@ function sort(id,column)
   {
     sort_counter=-1;
   }
-  getOrderInfo(id);
+  getOrderInfo(id,"searchResult");
 }
 function sort_products_asc(a,b){
   if (a.name > b.name) return -1; // если первое значение больше второго
